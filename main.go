@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sivsivsree/hello"
+	"github.com/sivsivsree/practice/hello"
 )
 
 func main() {
