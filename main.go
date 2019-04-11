@@ -4,8 +4,8 @@ import (
 	"./lib"
 	"./lib/datastructures"
 	"./lib/structures"
-	"github.com/sivsivsree/practice/basics"
-	"github.com/sivsivsree/practice/hello"
+	"github.com/sivsivsree/go-now/basics"
+	"github.com/sivsivsree/go-now/hello"
 )
 
 func main() {
