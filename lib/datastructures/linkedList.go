@@ -1,28 +1,28 @@
-package main
+package datastructures
 
 import "fmt"
 
-// Person is..
-type Person struct {
+// person is..
+type person struct {
 	age    int
 	name   string
 	weight float64
-	next   *Person
+	next   *person
 }
 
-func main() {
+func TestLikedList() {
 
-	personList := &Person{} // creating a pointer to struct, same as &Person
+	personList := &person{} // creating a pointer to struct, same as &person
 
 	var optn int
 	for {
 		fmt.Println("\n Select option :- \n\t1.Print List\n\t2.Add to list\n\t3.Exit")
-		fmt.Scanf("%d", &optn)
+		_, _ = fmt.Scanf("%d", &optn)
 		switch optn {
 		case 1:
-			printList(personList)
+			PrintList(personList)
 		case 2:
-			addToList(personList)
+			AddToList(personList)
 		case 3:
 		default:
 			panic("Exiting..")
@@ -31,30 +31,30 @@ func main() {
 
 }
 
-func printList(personList *Person) {
+func PrintList(personList *person) {
 	// print("\033[H\033[2J")
 	for p := personList; p != nil; p = p.next {
 		fmt.Println(p)
 	}
-	fmt.Scanf("%d")
+	_, _ = fmt.Scanf("%d")
 }
 
-func addToList(personList *Person) {
+func AddToList(personList *person) {
 	fmt.Println("Adding..")
-	newPerson := &Person{}
+	newPerson := &person{}
 	fmt.Println("Enter the Name :")
-	fmt.Scanf("%s", &newPerson.name)
+	_, _ = fmt.Scanf("%s", &newPerson.name)
 	fmt.Println("Enter the age :")
-	fmt.Scanf("%d", &newPerson.age)
+	_, _ = fmt.Scanf("%d", &newPerson.age)
 	fmt.Println("Enter the weight :")
-	fmt.Scanf("%f", &newPerson.weight)
+	_, _ = fmt.Scanf("%f", &newPerson.weight)
 
-	addNode(newPerson, personList)
+	AddNode(newPerson, personList)
 	fmt.Println(personList)
-	fmt.Printf("Person %s added to list\n\n", newPerson.name)
+	fmt.Printf("person %s added to list\n\n", newPerson.name)
 }
 
-func addNode(newPerson, personList *Person) *Person {
+func AddNode(newPerson, personList *person) *person {
 	if personList == nil {
 		return personList
 	}

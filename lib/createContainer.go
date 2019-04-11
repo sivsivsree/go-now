@@ -1,5 +1,6 @@
-// +build linux
-package main
+// +build
+
+package lib
 
 import (
 	"fmt"
@@ -8,7 +9,7 @@ import (
 	"syscall"
 )
 
-func main() {
+func Create() {
 	switch os.Args[1] {
 	case "run":
 		run()

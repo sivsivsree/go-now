@@ -1,4 +1,4 @@
-package main
+package structures
 
 import "fmt"
 
@@ -31,7 +31,7 @@ func setTopSpeed(c Car, speed float64) Car {
 	return c
 }
 
-func main() {
+func MakeStruct() {
 	theCar := Car{
 		gasPedal:      223,
 		breakpedal:    0,
