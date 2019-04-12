@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"encoding/json"
@@ -33,7 +33,7 @@ func getJSON(url string, result interface{}) error {
 	return nil
 }
 
-func main() {
+func JSONParse() {
 	fmt.Println("Welcome to JSON parsing..")
 	posts := Posts{}
 	getJSON("https://jsonplaceholder.typicode.com/posts", &posts)
