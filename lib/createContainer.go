@@ -1,5 +1,3 @@
-// +build
-
 package lib
 
 import (
@@ -9,7 +7,7 @@ import (
 	"syscall"
 )
 
-func Create() {
+func CreateSomething() {
 	switch os.Args[1] {
 	case "run":
 		run()

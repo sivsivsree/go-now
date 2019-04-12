@@ -11,7 +11,7 @@ import (
 func main() {
 	hello.World()
 	basics.Init()
-	lib.Create()
+	// lib.CreateSomething()
 	lib.JSONParse()
 	structures.MakeStruct()
 	datastructures.TestLikedList()
