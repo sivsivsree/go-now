@@ -1,10 +1,6 @@
-<<<<<<< HEAD:03_creating_containers/main.go
-package main
-=======
 // +build
 
 package lib
->>>>>>> 9377ecb1d8477c0a0057613d4b673acbf6933fa8:lib/createContainer.go
 
 import (
 	"fmt"

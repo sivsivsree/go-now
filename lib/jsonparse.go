@@ -33,6 +33,7 @@ func getJSON(url string, result interface{}) error {
 	return nil
 }
 
+// JSONParse is..
 func JSONParse() {
 	fmt.Println("Welcome to JSON parsing..")
 	posts := Posts{}
