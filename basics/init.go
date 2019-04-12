@@ -1,10 +1,10 @@
-package main
+package basics
 
 import (
 	"fmt"
 )
 
-func main() {
+func Init() {
 
 	// inititalized the variables
 	name := "Roxx"
@@ -32,6 +32,6 @@ func main() {
 
 	fmt.Println(accounts)
 
-	fmt.Println(reverse("Hello"))
+	fmt.Println(Reverse("Hello"))
 
 }
