@@ -6,14 +6,16 @@ import (
 	"github.com/sivsivsree/go-now/lib"
 	"github.com/sivsivsree/go-now/lib/datastructures"
 	"github.com/sivsivsree/go-now/lib/structures"
+	"github.com/sivsivsree/go-now/lib/gui"
 )
 
 func main() {
 	hello.World()
 	basics.Init()
-	lib.Create()
 	lib.JSONParse()
 	structures.MakeStruct()
 	datastructures.TestLikedList()
+
+	gui.ScreenOne()
 
 }

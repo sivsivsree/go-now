@@ -9,7 +9,7 @@ import (
 	"syscall"
 )
 
-func Create() {
+func CreateContainer() {
 	switch os.Args[1] {
 	case "run":
 		run()
