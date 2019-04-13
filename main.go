@@ -11,12 +11,14 @@ import (
 
 func main() {
 	hello.World()
+
+	gui.ScreenOne()
+
 	basics.Init()
+
 	// lib.CreateSomething()
 	lib.JSONParse()
 	structures.MakeStruct()
 	defer datastructures.TestLikedList()
-
-	gui.ScreenOne()
 
 }
