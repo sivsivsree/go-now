@@ -1,7 +1,7 @@
 language: go
 sudo: false
 before_script:
-  - go install
+  - go get fyne.io/fyne
   - go vet ./...
 install:
   # Add Godeps dependencies to GOPATH and PATH
