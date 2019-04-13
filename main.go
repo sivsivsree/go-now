@@ -5,8 +5,8 @@ import (
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/lib"
 	"github.com/sivsivsree/go-now/lib/datastructures"
-	"github.com/sivsivsree/go-now/lib/structures"
 	"github.com/sivsivsree/go-now/lib/gui"
+	"github.com/sivsivsree/go-now/lib/structures"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	// lib.CreateSomething()
 	lib.JSONParse()
 	structures.MakeStruct()
-	datastructures.TestLikedList()
+	defer datastructures.TestLikedList()
 
 	gui.ScreenOne()
 
