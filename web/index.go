@@ -1,4 +1,4 @@
-package main
+package web
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func main() {
+func HandleTCP() {
 
 	fmt.Printf("pid: %d\n", os.Getpid())
 

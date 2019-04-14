@@ -6,6 +6,7 @@ import (
 	"github.com/sivsivsree/go-now/lib"
 	"github.com/sivsivsree/go-now/lib/datastructures"
 	"github.com/sivsivsree/go-now/lib/structures"
+	"github.com/sivsivsree/go-now/web"
 )
 
 func main() {
@@ -21,5 +22,7 @@ func main() {
 	structures.MakeStruct()
 
 	defer datastructures.TestLikedList()
+
+	web.HandleTCP()
 
 }
