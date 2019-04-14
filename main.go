@@ -17,7 +17,9 @@ func main() {
 
 	// lib.CreateSomething()
 	lib.JSONParse()
+
 	structures.MakeStruct()
+
 	defer datastructures.TestLikedList()
 
 }

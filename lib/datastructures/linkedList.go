@@ -24,6 +24,7 @@ func TestLikedList() {
 		case 2:
 			AddToList(personList)
 		case 3:
+			return
 		default:
 			panic("Exiting..")
 		}
