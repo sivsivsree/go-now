@@ -5,14 +5,13 @@ import (
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/lib"
 	"github.com/sivsivsree/go-now/lib/datastructures"
-	"github.com/sivsivsree/go-now/lib/gui"
 	"github.com/sivsivsree/go-now/lib/structures"
 )
 
 func main() {
 	hello.World()
 
-	gui.ScreenOne()
+	// gui.ScreenOne()
 
 	basics.Init()
 
