@@ -38,6 +38,6 @@ func HandleTCP() {
 
 func handleAllConnection(conn net.Conn) {
 	for {
-		io.WriteString(conn, "Hello from TCP server..")
+		io.WriteString(conn, "Hello from TCP server..\n")
 	}
 }
