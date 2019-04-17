@@ -2,6 +2,7 @@ package web
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
@@ -12,6 +13,12 @@ import (
 	"time"
 )
 
+type User struct {
+	gorm.Model
+	Name  string `gorm:"unique"`
+	Todos []Todo `gorm:"foreignkey:UserRefer"`
+}
+
 // Todo is..
 type Todo struct {
 	gorm.Model
@@ -19,27 +26,30 @@ type Todo struct {
 	Token     string
 	Completed bool
 	Due       time.Time
+	UserRefer uint
 }
 
 var db = getDB()
 
 func getDB() *gorm.DB {
 
-	db, err := gorm.Open("sqlite3", "test.db")
+	db, err := gorm.Open("sqlite3", "data.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
 
 	db.LogMode(true)
 	// Migrate the schema
-	db.AutoMigrate(&Todo{})
+	db.AutoMigrate(&User{}, &Todo{})
 
 	return db
 
 }
 
 func createTodo(todo Todo) *gorm.DB {
-	// Create
+	var user User
+	db.First(&user).Where("name = ?", "siv");
+	todo.UserRefer = user.ID
 	db.Create(&todo)
 	return db
 }
@@ -47,8 +57,14 @@ func createTodo(todo Todo) *gorm.DB {
 func getAll() []Todo {
 	var todos []Todo
 	db.Find(&todos)
-
 	return todos;
+}
+
+func getAllUsers() []User {
+	var users []User
+	db.Find(&users)
+	fmt.Println(users)
+	return users;
 }
 
 /*func setUpDB() {
@@ -71,14 +87,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	// token := fmt.Sprintf("%v", context.Get(r, "token"))
 	todos := getAll()
-	json.NewEncoder(w).Encode(todos)
+	_ = json.NewEncoder(w).Encode(todos)
 
 }
 
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	todo := Todo{Name: "Siv", Completed: false, Due: time.Now(), Token: strconv.FormatInt(time.Now().UnixNano(), 10)}
+
 	createTodo(todo)
-	json.NewEncoder(w).Encode(todo)
+	_ = json.NewEncoder(w).Encode(todo)
 }
 
 func simpleMw(next http.Handler) http.Handler {
@@ -93,15 +110,28 @@ func simpleMw(next http.Handler) http.Handler {
 
 func Server() {
 
-	// db.DropTable(&Todo{})
+
 
 	r := mux.NewRouter()
 	r.Use(simpleMw)
+
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		db.Create(&User{Name: "sid"})
+		var user User;
+		db.First(&user).Where(&User{Name: "siv"})
+		_ = json.NewEncoder(w).Encode(user)
+	})
 	r.HandleFunc("/list", handler)
+	r.HandleFunc("/users", listUsers)
 	r.HandleFunc("/create", createHandler)
 
 	log.Fatal(http.ListenAndServe(":9876", r))
 
 	defer db.Close()
 
+}
+
+func listUsers(writer http.ResponseWriter, request *http.Request) {
+	users := getAllUsers()
+	_ = json.NewEncoder(writer).Encode(users)
 }

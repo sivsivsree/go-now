@@ -1,15 +1,682 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dad85f6-a9cb-4652-9a1b-493c4a61e4f4" name="Default Changelist" comment="">
+    <list default="true" id="7dad85f6-a9cb-4652-9a1b-493c4a61e4f4" name="Default Changelist" comment="middleware use and context in go.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/simpleserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/simpleserver.go" afterDir="false" />
     </list>
     <ignored path=".idea/go-now.iml" />
     <ignored path=".idea/misc.xml" />
     <ignored path=".idea/modules.xml" />
     <ignored path=".idea/vcs.xml" />
+    <ignored path="node_modules/.bin/json5" />
+    <ignored path="node_modules/@types/pdfjs-dist/index.d.ts" />
+    <ignored path="node_modules/@types/pdfjs-dist/LICENSE" />
+    <ignored path="node_modules/@types/pdfjs-dist/package.json" />
+    <ignored path="node_modules/@types/pdfjs-dist/README.md" />
+    <ignored path="node_modules/ajv/dist/ajv.bundle.js" />
+    <ignored path="node_modules/ajv/dist/ajv.min.js" />
+    <ignored path="node_modules/ajv/dist/ajv.min.js.map" />
+    <ignored path="node_modules/ajv/lib/compile/async.js" />
+    <ignored path="node_modules/ajv/lib/compile/equal.js" />
+    <ignored path="node_modules/ajv/lib/compile/error_classes.js" />
+    <ignored path="node_modules/ajv/lib/compile/formats.js" />
+    <ignored path="node_modules/ajv/lib/compile/index.js" />
+    <ignored path="node_modules/ajv/lib/compile/resolve.js" />
+    <ignored path="node_modules/ajv/lib/compile/rules.js" />
+    <ignored path="node_modules/ajv/lib/compile/schema_obj.js" />
+    <ignored path="node_modules/ajv/lib/compile/ucs2length.js" />
+    <ignored path="node_modules/ajv/lib/compile/util.js" />
+    <ignored path="node_modules/ajv/lib/dot/_limit.jst" />
+    <ignored path="node_modules/ajv/lib/dot/_limitItems.jst" />
+    <ignored path="node_modules/ajv/lib/dot/_limitLength.jst" />
+    <ignored path="node_modules/ajv/lib/dot/_limitProperties.jst" />
+    <ignored path="node_modules/ajv/lib/dot/allOf.jst" />
+    <ignored path="node_modules/ajv/lib/dot/anyOf.jst" />
+    <ignored path="node_modules/ajv/lib/dot/coerce.def" />
+    <ignored path="node_modules/ajv/lib/dot/comment.jst" />
+    <ignored path="node_modules/ajv/lib/dot/const.jst" />
+    <ignored path="node_modules/ajv/lib/dot/contains.jst" />
+    <ignored path="node_modules/ajv/lib/dot/custom.jst" />
+    <ignored path="node_modules/ajv/lib/dot/defaults.def" />
+    <ignored path="node_modules/ajv/lib/dot/definitions.def" />
+    <ignored path="node_modules/ajv/lib/dot/dependencies.jst" />
+    <ignored path="node_modules/ajv/lib/dot/enum.jst" />
+    <ignored path="node_modules/ajv/lib/dot/errors.def" />
+    <ignored path="node_modules/ajv/lib/dot/format.jst" />
+    <ignored path="node_modules/ajv/lib/dot/if.jst" />
+    <ignored path="node_modules/ajv/lib/dot/items.jst" />
+    <ignored path="node_modules/ajv/lib/dot/missing.def" />
+    <ignored path="node_modules/ajv/lib/dot/multipleOf.jst" />
+    <ignored path="node_modules/ajv/lib/dot/not.jst" />
+    <ignored path="node_modules/ajv/lib/dot/oneOf.jst" />
+    <ignored path="node_modules/ajv/lib/dot/pattern.jst" />
+    <ignored path="node_modules/ajv/lib/dot/properties.jst" />
+    <ignored path="node_modules/ajv/lib/dot/propertyNames.jst" />
+    <ignored path="node_modules/ajv/lib/dot/ref.jst" />
+    <ignored path="node_modules/ajv/lib/dot/required.jst" />
+    <ignored path="node_modules/ajv/lib/dot/uniqueItems.jst" />
+    <ignored path="node_modules/ajv/lib/dot/validate.jst" />
+    <ignored path="node_modules/ajv/lib/dotjs/_limit.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/_limitItems.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/_limitLength.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/_limitProperties.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/allOf.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/anyOf.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/comment.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/const.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/contains.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/custom.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/dependencies.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/enum.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/format.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/if.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/index.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/items.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/multipleOf.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/not.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/oneOf.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/pattern.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/properties.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/propertyNames.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/README.md" />
+    <ignored path="node_modules/ajv/lib/dotjs/ref.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/required.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/uniqueItems.js" />
+    <ignored path="node_modules/ajv/lib/dotjs/validate.js" />
+    <ignored path="node_modules/ajv/lib/refs/data.json" />
+    <ignored path="node_modules/ajv/lib/refs/json-schema-draft-04.json" />
+    <ignored path="node_modules/ajv/lib/refs/json-schema-draft-06.json" />
+    <ignored path="node_modules/ajv/lib/refs/json-schema-draft-07.json" />
+    <ignored path="node_modules/ajv/lib/refs/json-schema-secure.json" />
+    <ignored path="node_modules/ajv/lib/.DS_Store" />
+    <ignored path="node_modules/ajv/lib/ajv.d.ts" />
+    <ignored path="node_modules/ajv/lib/ajv.js" />
+    <ignored path="node_modules/ajv/lib/cache.js" />
+    <ignored path="node_modules/ajv/lib/data.js" />
+    <ignored path="node_modules/ajv/lib/keyword.js" />
+    <ignored path="node_modules/ajv/scripts/.eslintrc.yml" />
+    <ignored path="node_modules/ajv/scripts/bundle.js" />
+    <ignored path="node_modules/ajv/scripts/compile-dots.js" />
+    <ignored path="node_modules/ajv/scripts/info" />
+    <ignored path="node_modules/ajv/scripts/prepare-tests" />
+    <ignored path="node_modules/ajv/scripts/publish-built-version" />
+    <ignored path="node_modules/ajv/scripts/travis-gh-pages" />
+    <ignored path="node_modules/ajv/.tonic_example.js" />
+    <ignored path="node_modules/ajv/LICENSE" />
+    <ignored path="node_modules/ajv/package.json" />
+    <ignored path="node_modules/ajv/README.md" />
+    <ignored path="node_modules/ajv-keywords/keywords/dot/_formatLimit.jst" />
+    <ignored path="node_modules/ajv-keywords/keywords/dot/patternRequired.jst" />
+    <ignored path="node_modules/ajv-keywords/keywords/dot/switch.jst" />
+    <ignored path="node_modules/ajv-keywords/keywords/dotjs/_formatLimit.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/dotjs/patternRequired.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/dotjs/README.md" />
+    <ignored path="node_modules/ajv-keywords/keywords/dotjs/switch.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/_formatLimit.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/_util.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/allRequired.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/anyRequired.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/deepProperties.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/deepRequired.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/dynamicDefaults.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/formatMaximum.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/formatMinimum.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/index.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/instanceof.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/patternRequired.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/prohibited.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/range.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/regexp.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/select.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/switch.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/transform.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/typeof.js" />
+    <ignored path="node_modules/ajv-keywords/keywords/uniqueItemProperties.js" />
+    <ignored path="node_modules/ajv-keywords/index.js" />
+    <ignored path="node_modules/ajv-keywords/LICENSE" />
+    <ignored path="node_modules/ajv-keywords/package.json" />
+    <ignored path="node_modules/ajv-keywords/README.md" />
+    <ignored path="node_modules/big.js/big.js" />
+    <ignored path="node_modules/big.js/big.min.js" />
+    <ignored path="node_modules/big.js/big.mjs" />
+    <ignored path="node_modules/big.js/CHANGELOG.md" />
+    <ignored path="node_modules/big.js/LICENCE" />
+    <ignored path="node_modules/big.js/package.json" />
+    <ignored path="node_modules/big.js/README.md" />
+    <ignored path="node_modules/emojis-list/CHANGELOG.md" />
+    <ignored path="node_modules/emojis-list/index.js" />
+    <ignored path="node_modules/emojis-list/LICENSE.md" />
+    <ignored path="node_modules/emojis-list/package.json" />
+    <ignored path="node_modules/emojis-list/README.md" />
+    <ignored path="node_modules/fast-deep-equal/index.d.ts" />
+    <ignored path="node_modules/fast-deep-equal/index.js" />
+    <ignored path="node_modules/fast-deep-equal/LICENSE" />
+    <ignored path="node_modules/fast-deep-equal/package.json" />
+    <ignored path="node_modules/fast-deep-equal/README.md" />
+    <ignored path="node_modules/fast-json-stable-stringify/benchmark/index.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/benchmark/test.json" />
+    <ignored path="node_modules/fast-json-stable-stringify/example/key_cmp.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/example/nested.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/example/str.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/example/value_cmp.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/test/cmp.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/test/nested.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/test/str.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/test/to-json.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/.eslintrc.yml" />
+    <ignored path="node_modules/fast-json-stable-stringify/.npmignore" />
+    <ignored path="node_modules/fast-json-stable-stringify/.travis.yml" />
+    <ignored path="node_modules/fast-json-stable-stringify/index.js" />
+    <ignored path="node_modules/fast-json-stable-stringify/LICENSE" />
+    <ignored path="node_modules/fast-json-stable-stringify/package.json" />
+    <ignored path="node_modules/fast-json-stable-stringify/README.md" />
+    <ignored path="node_modules/json-schema-traverse/spec/fixtures/schema.js" />
+    <ignored path="node_modules/json-schema-traverse/spec/.eslintrc.yml" />
+    <ignored path="node_modules/json-schema-traverse/spec/index.spec.js" />
+    <ignored path="node_modules/json-schema-traverse/.eslintrc.yml" />
+    <ignored path="node_modules/json-schema-traverse/.travis.yml" />
+    <ignored path="node_modules/json-schema-traverse/index.js" />
+    <ignored path="node_modules/json-schema-traverse/LICENSE" />
+    <ignored path="node_modules/json-schema-traverse/package.json" />
+    <ignored path="node_modules/json-schema-traverse/README.md" />
+    <ignored path="node_modules/json5/dist/index.js" />
+    <ignored path="node_modules/json5/lib/cli.js" />
+    <ignored path="node_modules/json5/lib/index.js" />
+    <ignored path="node_modules/json5/lib/parse.js" />
+    <ignored path="node_modules/json5/lib/register.js" />
+    <ignored path="node_modules/json5/lib/require.js" />
+    <ignored path="node_modules/json5/lib/stringify.js" />
+    <ignored path="node_modules/json5/lib/unicode.js" />
+    <ignored path="node_modules/json5/lib/util.js" />
+    <ignored path="node_modules/json5/CHANGELOG.md" />
+    <ignored path="node_modules/json5/LICENSE.md" />
+    <ignored path="node_modules/json5/package.json" />
+    <ignored path="node_modules/json5/README.md" />
+    <ignored path="node_modules/loader-utils/lib/getCurrentRequest.js" />
+    <ignored path="node_modules/loader-utils/lib/getHashDigest.js" />
+    <ignored path="node_modules/loader-utils/lib/getOptions.js" />
+    <ignored path="node_modules/loader-utils/lib/getRemainingRequest.js" />
+    <ignored path="node_modules/loader-utils/lib/index.js" />
+    <ignored path="node_modules/loader-utils/lib/interpolateName.js" />
+    <ignored path="node_modules/loader-utils/lib/isUrlRequest.js" />
+    <ignored path="node_modules/loader-utils/lib/parseQuery.js" />
+    <ignored path="node_modules/loader-utils/lib/parseString.js" />
+    <ignored path="node_modules/loader-utils/lib/stringifyRequest.js" />
+    <ignored path="node_modules/loader-utils/lib/urlToRequest.js" />
+    <ignored path="node_modules/loader-utils/CHANGELOG.md" />
+    <ignored path="node_modules/loader-utils/LICENSE" />
+    <ignored path="node_modules/loader-utils/package.json" />
+    <ignored path="node_modules/loader-utils/README.md" />
+    <ignored path="node_modules/minimist/example/parse.js" />
+    <ignored path="node_modules/minimist/test/all_bool.js" />
+    <ignored path="node_modules/minimist/test/bool.js" />
+    <ignored path="node_modules/minimist/test/dash.js" />
+    <ignored path="node_modules/minimist/test/default_bool.js" />
+    <ignored path="node_modules/minimist/test/dotted.js" />
+    <ignored path="node_modules/minimist/test/kv_short.js" />
+    <ignored path="node_modules/minimist/test/long.js" />
+    <ignored path="node_modules/minimist/test/num.js" />
+    <ignored path="node_modules/minimist/test/parse.js" />
+    <ignored path="node_modules/minimist/test/parse_modified.js" />
+    <ignored path="node_modules/minimist/test/short.js" />
+    <ignored path="node_modules/minimist/test/stop_early.js" />
+    <ignored path="node_modules/minimist/test/unknown.js" />
+    <ignored path="node_modules/minimist/test/whitespace.js" />
+    <ignored path="node_modules/minimist/.travis.yml" />
+    <ignored path="node_modules/minimist/index.js" />
+    <ignored path="node_modules/minimist/LICENSE" />
+    <ignored path="node_modules/minimist/package.json" />
+    <ignored path="node_modules/minimist/readme.markdown" />
+    <ignored path="node_modules/ng2-pdf-viewer/bundles/ng2-pdf-viewer.umd.js" />
+    <ignored path="node_modules/ng2-pdf-viewer/bundles/ng2-pdf-viewer.umd.js.map" />
+    <ignored path="node_modules/ng2-pdf-viewer/bundles/ng2-pdf-viewer.umd.min.js" />
+    <ignored path="node_modules/ng2-pdf-viewer/bundles/ng2-pdf-viewer.umd.min.js.map" />
+    <ignored path="node_modules/ng2-pdf-viewer/src/app/pdf-viewer/pdf-viewer.component.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/src/app/pdf-viewer/pdf-viewer.module.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/src/app/utils/event-bus-utils.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/src/typings.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.es5.js" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.es5.js.map" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.js" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.js.map" />
+    <ignored path="node_modules/ng2-pdf-viewer/ng2-pdf-viewer.metadata.json" />
+    <ignored path="node_modules/ng2-pdf-viewer/package.json" />
+    <ignored path="node_modules/ng2-pdf-viewer/public_api.d.ts" />
+    <ignored path="node_modules/ng2-pdf-viewer/README.md" />
+    <ignored path="node_modules/node-ensure/.npmignore" />
+    <ignored path="node_modules/node-ensure/browser.js" />
+    <ignored path="node_modules/node-ensure/index.js" />
+    <ignored path="node_modules/node-ensure/package.json" />
+    <ignored path="node_modules/node-ensure/README.md" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.js" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.js.map" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.min.js" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.worker.entry.js" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.worker.js" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.worker.js.map" />
+    <ignored path="node_modules/pdfjs-dist/build/pdf.worker.min.js" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78ms-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/78ms-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/83pv-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90ms-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90ms-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90msp-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90msp-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90pv-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/90pv-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Add-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Add-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Add-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Add-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-0.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-1.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-3.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-4.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-5.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-6.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-CNS1-UCS2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-0.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-1.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-3.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-4.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-5.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-GB1-UCS2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-0.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-1.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-3.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-4.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-5.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-6.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Japan1-UCS2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Korea1-0.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Korea1-1.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Korea1-2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Adobe-Korea1-UCS2.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/B5pc-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/B5pc-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS1-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS1-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS2-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/CNS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETen-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETen-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETenms-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETenms-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETHK-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/ETHK-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Ext-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Ext-RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Ext-RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Ext-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GB-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GB-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GB-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GB-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBK-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBK-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBK2K-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBK2K-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBKp-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBKp-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBpc-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBpc-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBT-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBT-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBT-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBT-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBTpc-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/GBTpc-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Hankaku.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Hiragana.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKdla-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKdla-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKdlb-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKdlb-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKgccs-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKgccs-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKm314-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKm314-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKm471-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKm471-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKscs-B5-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/HKscs-B5-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Katakana.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-Johab-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-Johab-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCms-UHC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCms-UHC-HW-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCms-UHC-HW-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCms-UHC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCpc-EUC-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/KSCpc-EUC-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/LICENSE" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/NWP-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/NWP-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/RKSJ-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/RKSJ-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/Roman.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UCS2-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UCS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF16-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF16-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF8-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniCNS-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UCS2-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UCS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF16-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF16-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF8-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniGB-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UCS2-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UCS2-HW-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UCS2-HW-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UCS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF16-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF16-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF8-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF16-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF16-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF8-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJIS2004-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISPro-UCS2-HW-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISPro-UCS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISPro-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISX0213-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISX0213-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISX02132004-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniJISX02132004-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UCS2-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UCS2-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF16-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF16-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF32-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF32-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF8-H.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/UniKS-UTF8-V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/V.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/cmaps/WP-Symbol.bcmap" />
+    <ignored path="node_modules/pdfjs-dist/external/streams/streams-lib.js" />
+    <ignored path="node_modules/pdfjs-dist/external/url/url-lib.js" />
+    <ignored path="node_modules/pdfjs-dist/image_decoders/pdf.image_decoders.js" />
+    <ignored path="node_modules/pdfjs-dist/image_decoders/pdf.image_decoders.js.map" />
+    <ignored path="node_modules/pdfjs-dist/image_decoders/pdf.image_decoders.min.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/annotation.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/arithmetic_decoder.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/bidi.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/ccitt.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/ccitt_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/cff_parser.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/charsets.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/chunked_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/cmap.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/colorspace.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/crypto.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/document.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/encodings.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/evaluator.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/font_renderer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/fonts.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/function.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/glyphlist.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/image.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jbig2.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jbig2_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jpeg_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jpg.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jpx.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/jpx_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/metrics.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/murmurhash3.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/obj.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/operator_list.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/parser.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/pattern.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/pdf_manager.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/primitives.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/ps_parser.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/standard_fonts.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/type1_parser.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/unicode.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/core/worker.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/annotation_layer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/api.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/api_compatibility.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/canvas.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/content_disposition.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/dom_utils.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/fetch_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/font_loader.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/metadata.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/network.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/network_utils.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/node_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/pattern_helper.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/svg.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/text_layer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/transport_stream.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/webgl.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/worker_options.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/display/xml_parser.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/examples/node/domstubs.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/compatibility.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/global_scope.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/is_node.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/message_handler.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/streams_polyfill.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/url_polyfill.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/shared/util.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/annotation_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/api_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/bidi_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/cff_parser_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/clitests_helper.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/cmap_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/colorspace_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/crypto_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/custom_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/display_svg_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/document_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/dom_utils_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/encodings_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/evaluator_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/function_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/jasmine-boot.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/message_handler_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/metadata_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/murmurhash3_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/network_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/network_utils_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/node_stream_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/parser_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/pdf_find_controller_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/pdf_find_utils_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/pdf_history_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/primitives_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/stream_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/test_utils.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/testreporter.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/type1_parser_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/ui_utils_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/unicode_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/test/unit/util_spec.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/annotation_layer_builder.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/app.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/app_options.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/base_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/chromecom.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/debugger.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/dom_events.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/download_manager.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/firefox_print_service.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/firefoxcom.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/genericcom.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/genericl10n.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/grab_to_pan.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/interfaces.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/overlay_manager.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/password_prompt.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_attachment_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_cursor_tools.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_document_properties.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_find_bar.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_find_controller.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_find_utils.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_history.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_link_service.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_outline_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_page_view.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_presentation_mode.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_print_service.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_rendering_queue.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_sidebar.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_sidebar_resizer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_single_page_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_thumbnail_view.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_thumbnail_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_viewer.component.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/pdf_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/preferences.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/secondary_toolbar.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/text_layer_builder.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/toolbar.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/ui_utils.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/view_history.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/web/viewer_compatibility.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/pdf.js" />
+    <ignored path="node_modules/pdfjs-dist/lib/pdf.worker.js" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-check.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-comment.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-help.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-insert.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-key.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-newparagraph.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-noicon.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-note.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/annotation-paragraph.svg" />
+    <ignored path="node_modules/pdfjs-dist/web/images/loading-icon.gif" />
+    <ignored path="node_modules/pdfjs-dist/web/images/shadow.png" />
+    <ignored path="node_modules/pdfjs-dist/web/images/texture.png" />
+    <ignored path="node_modules/pdfjs-dist/web/pdf_viewer.css" />
+    <ignored path="node_modules/pdfjs-dist/web/pdf_viewer.js" />
+    <ignored path="node_modules/pdfjs-dist/web/pdf_viewer.js.map" />
+    <ignored path="node_modules/pdfjs-dist/bower.json" />
+    <ignored path="node_modules/pdfjs-dist/LICENSE" />
+    <ignored path="node_modules/pdfjs-dist/package.json" />
+    <ignored path="node_modules/pdfjs-dist/README.md" />
+    <ignored path="node_modules/pdfjs-dist/webpack.js" />
+    <ignored path="node_modules/punycode/LICENSE-MIT.txt" />
+    <ignored path="node_modules/punycode/package.json" />
+    <ignored path="node_modules/punycode/punycode.es6.js" />
+    <ignored path="node_modules/punycode/punycode.js" />
+    <ignored path="node_modules/punycode/README.md" />
+    <ignored path="node_modules/schema-utils/src/index.js" />
+    <ignored path="node_modules/schema-utils/src/validateOptions.js" />
+    <ignored path="node_modules/schema-utils/src/ValidationError.js" />
+    <ignored path="node_modules/schema-utils/CHANGELOG.md" />
+    <ignored path="node_modules/schema-utils/LICENSE" />
+    <ignored path="node_modules/schema-utils/package.json" />
+    <ignored path="node_modules/schema-utils/README.md" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.d.ts" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.js" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.js.map" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.min.d.ts" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.min.js" />
+    <ignored path="node_modules/uri-js/dist/es5/uri.all.min.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/http.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/http.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/http.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/https.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/https.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/https.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/mailto.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/mailto.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/mailto.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn-uuid.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn-uuid.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn-uuid.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/schemes/urn.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/index.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/index.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/index.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-iri.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-iri.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-iri.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-uri.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-uri.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/regexps-uri.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/uri.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/uri.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/uri.js.map" />
+    <ignored path="node_modules/uri-js/dist/esnext/util.d.ts" />
+    <ignored path="node_modules/uri-js/dist/esnext/util.js" />
+    <ignored path="node_modules/uri-js/dist/esnext/util.js.map" />
+    <ignored path="node_modules/uri-js/src/schemes/http.ts" />
+    <ignored path="node_modules/uri-js/src/schemes/https.ts" />
+    <ignored path="node_modules/uri-js/src/schemes/mailto.ts" />
+    <ignored path="node_modules/uri-js/src/schemes/urn-uuid.ts" />
+    <ignored path="node_modules/uri-js/src/schemes/urn.ts" />
+    <ignored path="node_modules/uri-js/src/index.ts" />
+    <ignored path="node_modules/uri-js/src/punycode.d.ts" />
+    <ignored path="node_modules/uri-js/src/regexps-iri.ts" />
+    <ignored path="node_modules/uri-js/src/regexps-uri.ts" />
+    <ignored path="node_modules/uri-js/src/uri.ts" />
+    <ignored path="node_modules/uri-js/src/util.ts" />
+    <ignored path="node_modules/uri-js/tests/qunit.css" />
+    <ignored path="node_modules/uri-js/tests/qunit.js" />
+    <ignored path="node_modules/uri-js/tests/test-es5-min.html" />
+    <ignored path="node_modules/uri-js/tests/test-es5.html" />
+    <ignored path="node_modules/uri-js/tests/tests.js" />
+    <ignored path="node_modules/uri-js/bower.json" />
+    <ignored path="node_modules/uri-js/package.json" />
+    <ignored path="node_modules/uri-js/README.md" />
+    <ignored path="node_modules/uri-js/rollup.config.js" />
+    <ignored path="node_modules/uri-js/tsconfig.json" />
+    <ignored path="node_modules/uri-js/yarn.lock" />
+    <ignored path="node_modules/worker-loader/dist/workers/index.js" />
+    <ignored path="node_modules/worker-loader/dist/workers/InlineWorker.js" />
+    <ignored path="node_modules/worker-loader/dist/cjs.js" />
+    <ignored path="node_modules/worker-loader/dist/Error.js" />
+    <ignored path="node_modules/worker-loader/dist/index.js" />
+    <ignored path="node_modules/worker-loader/dist/options.json" />
+    <ignored path="node_modules/worker-loader/CHANGELOG.md" />
+    <ignored path="node_modules/worker-loader/LICENSE" />
+    <ignored path="node_modules/worker-loader/package.json" />
+    <ignored path="node_modules/worker-loader/README.md" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +697,25 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="data" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="data" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="data" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="data" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="users: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -51,7 +725,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="300">
               <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
             </state>
           </provider>
@@ -78,13 +752,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/simpleserver.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="-508">
+              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
               <folding>
                 <element signature="e#684#1030#0" />
-                <element signature="n#!!block;n#handler#0" />
-                <element signature="n#!!block;n#simpleMw#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://34d80836-8486-4924-b686-6ef6ff5d3ace/schema/main/table/users">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -150,32 +831,6 @@
             <path>
               <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
               <item name="go-now" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-now" type="462c0819:PsiDirectoryNode" />
-              <item name="basics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-now" type="462c0819:PsiDirectoryNode" />
-              <item name="hello" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-now" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-now" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-now" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-now" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -251,14 +906,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21489622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" weight="0.32959184" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -267,12 +921,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4992636" visible="true" weight="0.35612243" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4992636" visible="true" weight="0.25816327" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073636" side_tool="true" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17521368" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.24481075" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,13 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/gui/helloGui.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -462,7 +1109,75 @@
     <entry file="das://f38f41b8-179a-4d04-9d38-18e4d2439796/collation/RTRIM">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1444" />
+      </provider>
+    </entry>
     <entry file="das://1564d698-ad0d-4974-942e-dff42e2b28e3/schema/main/table/todos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1564d698-ad0d-4974-942e-dff42e2b28e3/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://07c367d4-5776-4df6-b662-9acdeb2a8bde/schema/main/table/todos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://07c367d4-5776-4df6-b662-9acdeb2a8bde/schema/main/table/users/index/idx_users_deleted_at">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://07c367d4-5776-4df6-b662-9acdeb2a8bde/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e2b1a7ba-c434-49db-b48e-2e1932da2a09/schema/main/table/todos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e2b1a7ba-c434-49db-b48e-2e1932da2a09/schema/main/table/users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e2b1a7ba-c434-49db-b48e-2e1932da2a09/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34d80836-8486-4924-b686-6ef6ff5d3ace/schema/main/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -471,12 +1186,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/simpleserver.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="-508">
+          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
           <folding>
             <element signature="e#684#1030#0" />
-            <element signature="n#!!block;n#handler#0" />
-            <element signature="n#!!block;n#simpleMw#0" />
           </folding>
         </state>
       </provider>
