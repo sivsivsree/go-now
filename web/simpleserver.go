@@ -33,7 +33,7 @@ var db = getDB()
 
 func getDB() *gorm.DB {
 
-	db, err := gorm.Open("sqlite3", "data.db")
+	db, err := gorm.Open("sqlite3", "database.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -46,10 +46,12 @@ func getDB() *gorm.DB {
 
 }
 
-func createTodo(todo Todo) *gorm.DB {
+func createTodo(todo *Todo) *gorm.DB {
 	var user User
-	db.First(&user).Where("name = ?", "siv");
+	db.Where("Name = ?", "siv").First(&user)
 	todo.UserRefer = user.ID
+	fmt.Println(user)
+	fmt.Println(todo)
 	db.Create(&todo)
 	return db
 }
@@ -57,14 +59,14 @@ func createTodo(todo Todo) *gorm.DB {
 func getAll() []Todo {
 	var todos []Todo
 	db.Find(&todos)
-	return todos;
+	return todos
 }
 
 func getAllUsers() []User {
 	var users []User
 	db.Find(&users)
 	fmt.Println(users)
-	return users;
+	return users
 }
 
 /*func setUpDB() {
@@ -94,7 +96,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	todo := Todo{Name: "Siv", Completed: false, Due: time.Now(), Token: strconv.FormatInt(time.Now().UnixNano(), 10)}
 
-	createTodo(todo)
+	createTodo(&todo)
 	_ = json.NewEncoder(w).Encode(todo)
 }
 
@@ -110,24 +112,37 @@ func simpleMw(next http.Handler) http.Handler {
 
 func Server() {
 
-
-
 	r := mux.NewRouter()
 	r.Use(simpleMw)
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		db.Create(&User{Name: "sid"})
-		var user User;
-		db.First(&user).Where(&User{Name: "siv"})
+		db.Create(&User{Name: "siv"})
+		var user User
+		db.Where(&User{Name: "siv"}).First(&user)
 		_ = json.NewEncoder(w).Encode(user)
 	})
 	r.HandleFunc("/list", handler)
 	r.HandleFunc("/users", listUsers)
 	r.HandleFunc("/create", createHandler)
+	r.HandleFunc("/find/{id:[0-9]+}", findHandler)
 
 	log.Fatal(http.ListenAndServe(":9876", r))
 
 	defer db.Close()
+
+}
+
+func findHandler(w http.ResponseWriter, r *http.Request) {
+
+	id := mux.Vars(r)["id"]
+	var users User
+	//var todo Todo
+
+	// db.Model(&users).Related(&todo, "Todos")
+	db.Preload("Todos").First(&users)
+	fmt.Println(id)
+
+	_ = json.NewEncoder(w).Encode(users)
 
 }
 
