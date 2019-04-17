@@ -8,3 +8,5 @@ install:
   - export PATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin:$PATH"
   - go get github.com/gorilla/mux
   - go get github.com/gorilla/context
+  - go get github.com/jinzhu/gorm
+  - go get github.com/mattn/go-sqlite3
