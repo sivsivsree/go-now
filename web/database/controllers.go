@@ -16,6 +16,7 @@ var db = GetDB()
 
 func GetDB() *gorm.DB {
 
+	// This is public sql database anyone can take a peek on it. if wanted.
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(sql12.freemysqlhosting.net:3306)/%s?charset=utf8&parseTime=True",
 		"sql12288441",
@@ -79,9 +80,9 @@ func GetAllUsers() []M.User {
 
 func FindTodoByUserID(id string) (M.User, error) {
 	var users M.User
-	//var todo Todo
+	//var to do To do
 
-	// db.Model(&users).Related(&todo, "Todos")
+	// db.Model(&users).Related(&to do, "Todos")
 	if noUsers := db.Preload("Todos").Where("id = ?", id).First(&users).RecordNotFound(); !noUsers {
 
 		return users, nil
