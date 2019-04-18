@@ -4,8 +4,10 @@ import (
 	"errors"
 	"fmt"
 	"github.com/jinzhu/gorm"
+	"github.com/joho/godotenv"
 	M "github.com/sivsivsree/go-now/web/modals"
 	"log"
+	"os"
 	"strconv"
 	"time"
 )
@@ -16,12 +18,17 @@ var db = GetDB()
 
 func GetDB() *gorm.DB {
 
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	// This is public sql database anyone can take a peek on it. if wanted.
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(sql12.freemysqlhosting.net:3306)/%s?charset=utf8&parseTime=True",
-		"sql12288441",
-		"3mHKHz3C8g",
-		"sql12288441",
+		os.Getenv("USERNAME"),
+		os.Getenv("PASSWORD"),
+		os.Getenv("DATABASE"),
 	)
 
 	log.Println(dsn)
