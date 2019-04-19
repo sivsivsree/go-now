@@ -43,14 +43,14 @@ func ListTodo(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func EchoHandler(w http.ResponseWriter, r *http.Request) {
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	tk := M.Token{
 		UserId:   1,
 		UserName: "Sivsivsree",
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: 15000,
-			Issuer:    "test",
+			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
+			Issuer:    "Siv",
 			IssuedAt:  time.Now().Unix(),
 		},
 	}
@@ -60,6 +60,14 @@ func EchoHandler(w http.ResponseWriter, r *http.Request) {
 		"token":  token,
 	}
 
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(res)
+}
+
+func EchoHandler(w http.ResponseWriter, r *http.Request) {
+
+	res := context.Get(r, "token")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(res)

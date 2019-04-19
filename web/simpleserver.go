@@ -26,7 +26,7 @@ func Server() {
 	r.HandleFunc("/users", handlers.ListUsers)
 	r.HandleFunc("/find/{id:[0-9]+}", handlers.FindHandler)
 	r.HandleFunc("/echo", handlers.EchoHandler).Methods("POST")
-	r.HandleFunc("/login", handlers.EchoHandler).Methods("POST")
+	r.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
 
 	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), r))
 
@@ -57,18 +57,19 @@ func simpleMw(next http.Handler) http.Handler {
 			return
 		}
 
-		verify := handlers.VerifyJWT(token)
+		parsedToken, err := handlers.VerifyJWT(token)
 
-		if !verify {
-			err := modals.ResErr{}
-			err.ErrorMessage("No token not valid")
+		if err != nil {
+			log.Println(err)
+			resErr := modals.ResErr{}
+			resErr.ErrorMessage(err.Error())
 			w.WriteHeader(401)
-			_ = json.NewEncoder(w).Encode(err)
+			_ = json.NewEncoder(w).Encode(resErr)
 			return
 		}
 
-		//log.Println("Query:", r.URL.Query(), r.Header)
-		context.Set(r, "token", token)
+		log.Println("token", parsedToken.Claims)
+		context.Set(r, "token", parsedToken.Claims)
 		// Call the next handler, which can be another middleware in the chain, or the final handler.
 		next.ServeHTTP(w, r)
 	})
