@@ -4,5 +4,5 @@ import "fmt"
 
 // World is..
 func World() {
-	fmt.Println("Hello World")
+	fmt.Println("Running Server")
 }

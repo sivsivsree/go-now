@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/joho/godotenv"
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/web"
+	"log"
 )
 
 func main() {
@@ -21,6 +23,11 @@ func main() {
 
 			defer datastructures.TestLikedList()
 	*/
+
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	pings := make(chan string, 1)
 	pongs := make(chan string, 1)
