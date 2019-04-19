@@ -26,7 +26,7 @@ func Server() {
 	r.HandleFunc("/users", handlers.ListUsers)
 	r.HandleFunc("/find/{id:[0-9]+}", handlers.FindHandler)
 	r.HandleFunc("/echo", handlers.EchoHandler).Methods("POST")
-	r.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
+	r.HandleFunc("/login", handlers.LoginHandler).Methods("POST", "GET")
 
 	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), r))
 

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/web"
@@ -28,15 +27,14 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-
+	go web.Server()
 	pings := make(chan string, 1)
 	pongs := make(chan string, 1)
 	ping(pings, "passed message")
 	pong(pings, pongs)
-	fmt.Println(<-pongs)
+	// fmt.Println(<-pongs)
 
-	go web.HandleTCP()
-	web.Server()
+	web.HandleTCP()
 
 }
 
