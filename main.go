@@ -6,7 +6,6 @@ import (
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/lib/datastructures/queue"
 	"log"
-	"strconv"
 )
 
 func main() {
@@ -39,23 +38,28 @@ func main() {
 	dataqueue := queue.New()
 
 	go func() {
-		fmt.Println("Dequeue Total Size: ", dataqueue.Size())
-
-		for dataqueue.Size() > 0 {
-			ele := dataqueue.Dequeue()
-			fmt.Println(ele.Value, dataqueue.Size())
+		for {
+			if dataqueue.Size() > 0 {
+				ele := dataqueue.Dequeue()
+				fmt.Println("Dequeue Total Size: ", ele.Value, dataqueue.Size())
+			}
 
 		}
 	}()
 
-	i := 0
+	go func() {
+		i := 0
 
-	for i < 200 {
-		i++
-		dataqueue.Enqueue("Enqueue data" + strconv.Itoa(dataqueue.Size()))
-		fmt.Println("Total Size: ", dataqueue.Size())
+		for {
+			i++
+			dataqueue.Enqueue("randomdata")
+			fmt.Println("Enqueue Total Size: ", dataqueue.Size())
 
-	}
+		}
+	}()
+
+	fmt.Printf("%s", 1 != 1)
+	// when this is ≠ that
 
 }
 
