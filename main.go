@@ -1,16 +1,30 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/sivsivsree/go-now/hello"
-	"github.com/sivsivsree/go-now/lib/datastructures/queue"
+	"github.com/sivsivsree/go-now/lib/datastructures/priorityQueue"
 	"log"
-	"strconv"
+	"os"
 )
+
+func input(x *string) *string {
+
+	reader := bufio.NewReader(os.Stdin)
+	*x, _ = reader.ReadString('\n')
+
+	return x
+}
 
 func main() {
 	hello.World()
+
+	c := "yes?"
+	input(&c)
+
+	fmt.Println(c)
 
 	// gui.ScreenOne()
 
@@ -36,37 +50,8 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	messages := make(chan string, 1)
-	dataqueue := queue.New()
+	priorityQueue.Example()
 
-	println(dataqueue.Size())
-
-	go func() {
-		for {
-			msg := <-messages
-			fmt.Println("Recived := ", msg)
-			if dataqueue.Size() > 0 {
-				ele := dataqueue.Dequeue()
-				fmt.Println("Dequeue Total Size: ", ele.Value, dataqueue.Size())
-			}
-
-		}
-	}()
-
-	go func() {
-		i := 0
-
-		for {
-			i++
-			messages <- "<--- Send for enqueue" + strconv.Itoa(i)
-			dataqueue.Enqueue("randomdata")
-			fmt.Println("Enqueue Total Size: ", dataqueue.Size())
-
-		}
-	}()
-
-	var input string
-	fmt.Scanf("%s", &input)
 	// when this is ≠ that
 
 }
