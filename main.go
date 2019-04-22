@@ -6,6 +6,7 @@ import (
 	"github.com/sivsivsree/go-now/hello"
 	"github.com/sivsivsree/go-now/lib/datastructures/queue"
 	"log"
+	"strconv"
 )
 
 func main() {
@@ -35,10 +36,15 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
+	messages := make(chan string, 1)
 	dataqueue := queue.New()
+
+	println(dataqueue.Size())
 
 	go func() {
 		for {
+			msg := <-messages
+			fmt.Println("Recived := ", msg)
 			if dataqueue.Size() > 0 {
 				ele := dataqueue.Dequeue()
 				fmt.Println("Dequeue Total Size: ", ele.Value, dataqueue.Size())
@@ -52,13 +58,15 @@ func main() {
 
 		for {
 			i++
+			messages <- "<--- Send for enqueue" + strconv.Itoa(i)
 			dataqueue.Enqueue("randomdata")
 			fmt.Println("Enqueue Total Size: ", dataqueue.Size())
 
 		}
 	}()
 
-	fmt.Printf("%s", 1 != 1)
+	var input string
+	fmt.Scanf("%s", &input)
 	// when this is ≠ that
 
 }

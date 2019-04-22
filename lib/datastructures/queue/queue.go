@@ -2,7 +2,6 @@ package queue
 
 import (
 	"container/list"
-	"fmt"
 )
 
 type Q struct {
@@ -10,18 +9,22 @@ type Q struct {
 }
 
 func (q *Q) Enqueue(value interface{}) *Q {
-	fmt.Println(q.list.Len())
+
 	q.list.PushBack(value)
+
 	return q
 }
 
 func (q *Q) Dequeue() *list.Element {
 
-	element := q.list.Front()
-	// fmt.Println("Removed", element.Value)
-	q.list.Remove(element)
-	return element
+	if q.list.Len() > 0 {
+		element := q.list.Front()
+		// fmt.Println("Removed", element.Value)
+		q.list.Remove(element)
+		return element
+	}
 
+	return nil
 }
 
 func (q *Q) Size() int {
