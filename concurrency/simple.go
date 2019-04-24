@@ -1,11 +1,11 @@
-package main
+package concurrency
 
 import (
 	"fmt"
 	"time"
 )
 
-func main() {
+func Simple() {
 
 	c := make(chan string)
 	go count("Sheep", c)
