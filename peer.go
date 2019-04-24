@@ -4,5 +4,8 @@ import "github.com/sivsivsree/go-now/concurrency"
 
 func main() {
 
+	concurrency.UsingSelect()
 	concurrency.Simple()
+	concurrency.UsingRange()
+	concurrency.BufferedChannel()
 }
