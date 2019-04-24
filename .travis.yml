@@ -13,3 +13,4 @@ install:
   - go get github.com/go-sql-driver/mysql
   - go get github.com/joho/godotenv
   - go get github.com/dgrijalva/jwt-go
+  - github.com/perlin-network/noise
