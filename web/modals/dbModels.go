@@ -11,7 +11,7 @@ type User struct {
 	Todos []Todo `gorm:"foreignkey:UserRefer"`
 }
 
-// Todo is..
+// Todo is ..
 type Todo struct {
 	gorm.Model
 	Name      string
