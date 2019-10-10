@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
-	M "github.com/sivsivsree/go-now/web/modals"
+	"github.com/sivsivsree/go-now/practices"
 	"log"
 	"os"
 	"strconv"
@@ -40,24 +40,24 @@ func GetDB() *gorm.DB {
 
 	db.LogMode(true)
 	// Migrate the schema
-	db.AutoMigrate(&M.User{}, &M.Todo{})
+	db.AutoMigrate(&practices.User{}, &practices.Todo{})
 
 	return db
 
 }
 
-func CreateUsers(name string) (M.User, error) {
+func CreateUsers(name string) (practices.User, error) {
 
-	db.Create(&M.User{Name: name})
-	var user M.User
-	db.Where(&M.User{Name: name}).First(&user)
+	db.Create(&practices.User{Name: name})
+	var user practices.User
+	db.Where(&practices.User{Name: name}).First(&user)
 
 	return user, nil
 }
 
-func CreateTodo(name string) (M.Todo, error) {
-	todo := M.Todo{Name: "avooo", Completed: false, Due: time.Now(), Token: strconv.FormatInt(time.Now().UnixNano(), 10)}
-	var user M.User
+func CreateTodo(name string) (practices.Todo, error) {
+	todo := practices.Todo{Name: "avooo", Completed: false, Due: time.Now(), Token: strconv.FormatInt(time.Now().UnixNano(), 10)}
+	var user practices.User
 	if noUsers := db.Where("Name = ?", name).First(&user).RecordNotFound(); !noUsers {
 		todo.UserRefer = user.ID
 		fmt.Println(user)
@@ -70,23 +70,23 @@ func CreateTodo(name string) (M.Todo, error) {
 
 }
 
-func GetAll() []M.Todo {
+func GetAll() []practices.Todo {
 
-	var todos []M.Todo
+	var todos []practices.Todo
 	db.Find(&todos)
 	return todos
 }
 
-func GetAllUsers() []M.User {
+func GetAllUsers() []practices.User {
 
-	var users []M.User
+	var users []practices.User
 	db.Find(&users)
 	fmt.Println(users)
 	return users
 }
 
-func FindTodoByUserID(id string) (M.User, error) {
-	var users M.User
+func FindTodoByUserID(id string) (practices.User, error) {
+	var users practices.User
 	//var to do To do
 
 	// db.Model(&users).Related(&to do, "Todos")
@@ -95,6 +95,6 @@ func FindTodoByUserID(id string) (M.User, error) {
 		return users, nil
 
 	} else {
-		return M.User{}, errors.New("No Records found")
+		return practices.User{}, errors.New("No Records found")
 	}
 }

@@ -1,11 +1,9 @@
-package main
+package practices
 
 import (
 	"bufio"
 	"fmt"
 	"github.com/joho/godotenv"
-	"github.com/sivsivsree/go-now/hello"
-	"github.com/sivsivsree/go-now/lib/datastructures/priorityQueue"
 	"log"
 	"os"
 )
@@ -19,7 +17,7 @@ func input(x *string) *string {
 }
 
 func main() {
-	hello.World()
+	World()
 
 	c := "yes?"
 	input(&c)
@@ -50,7 +48,7 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	priorityQueue.Example()
+	Example()
 
 	// when this is ≠ that
 

@@ -2,6 +2,7 @@ package basics
 
 import (
 	"fmt"
+	"github.com/sivsivsree/go-now/practices"
 )
 
 func Init() {
@@ -32,6 +33,6 @@ func Init() {
 
 	fmt.Println(accounts)
 
-	fmt.Println(Reverse("Hello"))
+	fmt.Println(practices.Reverse("Hello"))
 
 }
